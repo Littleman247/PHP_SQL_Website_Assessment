@@ -1,0 +1,53 @@
+ <?php
+
+session_start();
+if(isset($_SESSION['username']));{
+    $_SESSION['msg'] = 'you must log in first to view this page';
+    header("location : Login.php");
+}
+
+
+if(isset($_GET['Log out']));{
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location : Login.php");
+}
+?>
+
+
+<DOCTYPE html>
+<html>
+<head>
+    <title> This is the homempage </title>
+
+</head>
+
+<body>
+    <h1>    
+        <?php
+            //if(isset($_SESSION['success'])); 
+        ?>
+    </h1>
+
+    <div>
+        <h3>
+            <?php
+                //echo ($_SESSION['success']);
+                //unset($_SESSION['success']);
+            ?>
+        </h3>
+    </div>
+<?php// endif 
+//// if the user logs in, them print the relevent infomation
+ //if(isset($_SESSION['username'])) : 
+ ?>
+
+    <h3>
+     Welcome    <?php //echo ($_SESSION['username']); ?>    
+     </h3>
+
+    <p><a href="Login.php">Logout</a></p>
+<?php// endif ?>
+    
+</body>
+</html>
